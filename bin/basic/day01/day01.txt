@@ -1,0 +1,51 @@
+1、什么是软件
+	指令和数据的集合
+	tips：
+		Windows  OS常用指令
+			window+R    	打开运行界面
+			notepad     	记事本
+			calc 			计算器
+			mspaint 		画图
+			services.msc	服务
+			cmd				命令行
+2、常见的编程语言
+	Java、C、C++、C#、Python、PHP...
+3、计算机的交互方式
+	图形化界面
+	命令行界面
+4、常用DOS命令
+	盘符:  -->   盘符切换
+	cd 路径名  -->  切换当前目录、
+	cd ..   -->    回到上一级目录
+	cd \      -->    回到根目录
+	
+	dir				查看当前目录下所有非隐藏的文件和文件夹
+	dir /a			查看当前目录下所有的文件和文件夹（包含隐藏信息。）
+	md   文件夹名-->   创建文件夹
+	rd   文件夹名-->   删除空文件夹
+	copy D:\1.txt C:\2.txt  将D:下的1.txt文件移动到C：，并将文件重命名为2.txt
+	move D:\1.txt C:\2.txt  剪切
+	ipconfig-all: 查看ip的主机信息，DNS信息等。。。
+	ping ip地址或者域名    检查两端的通信是否正常
+	cls   -->   清屏
+	exit  -->   退出
+5、JAVA简史
+	91年  --> Jamas Cosling参与Green项目（致力于解决家电和通讯之间的统一协作）
+	95年  --> Sun公司推出了Java1.0版本
+	09年  --> Sun被Oracle公司收购
+	JAVASE的版本
+		Javase 1.0包含了200+类
+		Javase 8.0包含了6000+类
+		Javase 12.0最新的
+	Java底层使用C写的
+6、Java的三大技术架构（规范）
+	1）JavaSE(Java Standard Edition)
+		Java标准版，里面包含了应用开发的基础环境(包含类库和工具)
+	2）JavaME(Java Micro Edition)
+		Java微型版
+	3）JavaEE(Java Enterprise Edition)
+		Java企业版，用来开发分布式企业级应用规范
+		tips：
+			分布式：由分布在不同主机上的进程协同在一起，构成了整个应用
+			
+	

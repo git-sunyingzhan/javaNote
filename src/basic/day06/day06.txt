@@ -1,0 +1,49 @@
+今日知识点
+	1.排序
+	2.Arrays
+
+1、形参类型问题
+	1）基本数据类型
+		如果形参改变，实参不会发生变化
+	2）引用数据类型
+		如果形参改变，实参会跟着变
+
+2、跳转控制语句
+	1）break
+		1.结束switch语句
+		2.跳出单层循环
+		如何跳出多层循环？
+			给循环语句添加标签，通过 break 标签名；  跳出标签对应的循环。
+			i:for(){
+				j:for(){
+					break i;
+				}
+			}
+	2）return
+		结束方法
+	3）continue
+		结束当前循环，继续下次循环
+3、排序
+	1）冒泡排序
+		相邻两个元素进行比较，大的往后放，第一轮结束最大值出现在最后面，继续下一轮比较
+	2）选择排序
+		拿第一个元素，和后面所有的元素进行比较，小的往前放。第一轮结束后，最小值出现在最前面；
+		继续下一轮比较，拿第二个元素和……
+4、Arrays
+	数组工具类，里面提供了很多操作数组的方法
+	1）String toString(T[] t)
+		获取指定数组内元素的字符串表示
+	2）void sort(int[] arr)		自然排序
+	3）int binarySreach(int[] arr,int key)		二分法查找
+		注意：数组必须是有序数组，且数组元素不重复
+	4）boolean equals(arr1,arr2)		比较两个数组是否相等（数组元素是否相同）
+	5）copyOf(arr,arr.length):数组复制
+	6）fill(arr,V)		数组填充
+	
+	tips:
+		System里面有一个方法
+		arrayCopy(src,srcPos,dest,dextPos,int len)
+		src:复制源		srcPos：复制的起始索引
+		dest：目的端 		destPos：接受的起始位置			len：复制元素的个数
+		
+	
