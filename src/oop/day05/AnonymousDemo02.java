@@ -6,8 +6,6 @@ package oop.day05;
 
 interface Person {
     void study();
-
-    void ss();
 }
 
 class Tool {
@@ -32,11 +30,6 @@ public class AnonymousDemo02 {
             @Override
             public void study() {
                 System.out.println("学Java");
-            }
-
-            @Override
-            public void ss() {
-
             }
         });
     }
