@@ -70,5 +70,4 @@ public class Card {
     public String toString(int suit, int rank) {
         return SUITS[suit] + RANKS[rank];
     }
-
 }

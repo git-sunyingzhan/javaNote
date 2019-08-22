@@ -55,8 +55,8 @@ public class Test {
         players[2].sort();
 
         // 看牌
-        System.out.println(players[0]);
-        System.out.println(players[1]);
-        System.out.println(players[2]);
+        System.out.println(players[0].toString());
+        System.out.println(players[1].toString());
+        System.out.println(players[2].toString());
     }
 }
