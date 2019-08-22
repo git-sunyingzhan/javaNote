@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - InnerDemo02",
+            "request": "launch",
+            "mainClass": "oop.day05.InnerDemo02",
+            "projectName": "javaNote"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
