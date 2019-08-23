@@ -3,7 +3,33 @@
     // 悬停以查看现有属性的描述。
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [
+    "configurations": [{
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/app.js"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ScannerDemo02",
+            "request": "launch",
+            "mainClass": "se01.day01.scannerTest.ScannerDemo02",
+            "projectName": "javaNote"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ScannerDemo01",
+            "request": "launch",
+            "mainClass": "se01.day01.scannerTest.ScannerDemo01",
+            "projectName": "javaNote"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ScannerDemo01",
+            "request": "launch",
+            "mainClass": "se01.day01.scanner.ScannerDemo01",
+            "projectName": "javaNote"
+        },
         {
             "type": "java",
             "name": "CodeLens (Launch) - InnerDemo02",

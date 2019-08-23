@@ -11,3 +11,39 @@
         boolean equals(Object obj):比较两个对象是否相等，默认比较地址值
         Object clone():返回一个对象的副本。需要注意：被克隆对象对应的类需要实现Cloneable接口，且该类需要
             重写clone方法。
+2、Scanner
+    它是一个简单的文本扫描器
+    1）构造
+        Scanner(InoutStream is)
+        构造一个文本扫描器，它生成的值是从指定的输入流扫描值
+        System.in 是标准输入流，对应位置Console
+    2）成员方法
+        boolean hasNext():是否有下一个数据。有数据返回true，否则返回false
+        boolean hasNextInt():是否有下一个int数据
+        String  next():获取下一个数据
+        int nextInt():获取下一个int数据
+        double nextdouble():获取下一个double数据
+        String nextLine():获取下一行数据
+3、String类
+    表示字符串，字符串是常量。字符串可以看成是多个字符的连接
+    1）构造方法
+        String():创建一个序列的字符串对象
+        String(byte[] bys):通过字节数组创建一个字符串对象
+    2）成员方法
+    	1.判断功能
+    		equals(Object obj):判断两个字符串是否相等
+    		equalsIgnoreCase(Object obj)：忽略大小写判断两个字符串是否相等
+    		isEmpty():判断字符串是否为空
+    		contains(String s):判断是否包含指定字符串
+    		startsWith(String s):判断是否以指定字符串开头
+    		endsWith(String s):判断是否以指定字符串结尾
+    	2.获取功能
+    		char charAt(int index):获取指定索引位置出的元素
+    		int length():获取字符串长度
+    		int indexOf(int ch):获取指定字符第一次出现的索引值
+    		int indexOf(int ch,int fromIndex):获取指定字符从指定位置开始第一次出现的索引值
+    		int indexOf(String ch)
+    		int lastIndexOf(int ch):获取指定字符最后一次出现的索引值
+    		int lastIndexOf(int ch,int fromIndex)
+    		String subString(int start)：从指定位置开始一直截取到结尾
+        	String subString(int start,int end)：截取[start,end-1]范围字符
