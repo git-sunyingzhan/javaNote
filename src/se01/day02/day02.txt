@@ -1,0 +1,95 @@
+1、正则表达式
+	负责字符串的匹配处理（一般用于验证字符串格式）
+	规则：
+		1）字符
+			x           x字符
+			\\          反斜线字符
+			\n			换行符
+			\r			回车符
+		2)字符类
+			[abc]		表示a、b或者c中的任意一个字符
+			[^abc]		表示除了a、b、c以外的任意的一个字符
+			[a-zA-Z]	表示a～Z、A～Z中任意一个字符
+			[0-9]		表示0～9中的任意一个字符
+		3）预定义字符类：
+			.			表示任意一个字符
+			\.			表示点字符
+			\d			表示数字字符，[0-9]
+			\w			表示单词字符，[a-zA-Z_0-9]
+			\s			表示空格字符
+		4）边界匹配器
+			^			表示行的开头
+			$			表示行的结尾
+			\b			表示单词的边界
+		5）数量词
+			？			表示0次或一次
+			*			表示0次或多次
+			+			表示1次或多次
+			{n}			表示n次
+			{n,}		表示至少n次
+			{n,m}		表示n到m次
+2、String类中和正则表达式相关的方法
+	1）boolean matches(String regex)
+		字符串是否匹配指定的增则表达式
+	2）String[]  split(String regex)
+		通过指定正则表达式将字符串分割为一个字符串数组
+	3）String replaceAll(String regex,String replaceMent)
+		将符合规则的字符串替换成指定字符串
+3、StringBuilder
+	线程不安全的可变字符序列
+	1)构造方法
+		StringBuilder():构造一个不带任何字符的字符串生成器，其初始容量为16个字符。
+		StringBuilder(String s):构造一个字符串生成器，并初始化为指定的字符串内容
+		StringBuilder(int capacity):构造一个不带任何字符串的生成器，其初始容量由capacity参数指定
+	2）成员方法
+		添加功能
+			StringBuilder append(int value):追加（注意：可以追加任意类型数据）
+			insert(int offset,String s):在指定位置插入指定字符串
+		获取功能
+			int capaciyt():获取容量
+			int length():获取长度（元素的个数）
+		删除功能：
+			deleateCharAt(int index):删除指定位置处的字符
+			deleate(int start,int end):删除[start,end-1]范围内的字符
+		替换功能：
+			replace(int start,int end,String s):将指定范围内的元素替换成指定的字符串
+		反转功能：
+			reverse():元素反转
+		截取功能：
+			String substring(int start):截取指定位置一直到末尾
+			Sreing substring(int start,int end):截取[start,end-1]范围的元素
+4、String、StringBuilder和StringBuffer的区别？
+	String内容不可变，而StringBuilder和StringBuffer内容可变
+	StringBuffer：是线程安全的，同步的，效率低
+	StringBuilder：是线程不安全的，不同步的，效率高
+5、形参类型问题
+	1）基本数据类型：形参改变，实参不会变
+	2）引用数据类型：形参改变，实参跟着变
+		注意：String虽然是引用数据类型，但是形参改变，实参不会变（字符串是常量）
+6、Date类
+	表示特定的瞬间，精确到毫秒值
+	1）构造方法
+		Date():以当前时间毫秒值创建到Date对象
+		Date(long time):以指定到毫秒值创建到Date对象
+	2)方法
+		long getTime():获取日期对象到毫秒值
+		setTime():设置日期毫秒值
+7、DateFormat
+	他是一个抽象类，用来格式化或者解析日期
+	格式化：Date转成String
+	解析：由String转成Date
+	static DateFormat getDateInstance(int style,Locale aLocale)
+		获取日期格式化器，该格式化器基友给定语言环境的给定格式化风格
+8、SimpleDateFormat
+	它是DateDormat的子类，可以自定义模型
+	1）构造
+		SimpleDateFormat():以默认模式、默认语言环境创建SimpleDateFormat对象
+		SimpleDateFormat(String pattern):以指定模式、默认语言环境创建SimpleDateFormat对象
+		常用模式：
+			yyyy年	MM月		dd日		HH时		mm分		ss秒
+	2）格式化
+		String format(Date d):格式化
+		Date parse(String s):解析
+作业：
+	算一下自己活了多少天
+		
