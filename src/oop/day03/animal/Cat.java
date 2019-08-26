@@ -41,4 +41,9 @@ public class Cat extends Animal {
         System.out.println("捉老鼠");
     }
 
+	@Override
+	public String toString() {
+		return "name:"+this.getName()+",age:"+this.getAge()+",gender:"+gender;
+	}
+
 }

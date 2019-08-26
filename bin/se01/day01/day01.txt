@@ -47,3 +47,36 @@
     		int lastIndexOf(int ch,int fromIndex)
     		String subString(int start)：从指定位置开始一直截取到结尾
         	String subString(int start,int end)：截取[start,end-1]范围字符
+        3.转化功能
+        	byte[] getBytes():将字符串转化成字节数组
+        	char[] toCharArray():将字符串转化成字符数组
+        	toUpperCase():转成大写
+        	toLowerCase():转成小写
+        	concat(String s):字符串链接
+        	static valueOf(char[] chs):将字符数组转换成字符数组
+        	static valueOf(int num):将int数据转换成字符串
+        	static valueOf(Object obj):将对象转换成字符串
+        4.其他功能
+        	replace(char old,char new):将old替换成new字符
+        	replace(String old,String new):将old替换成new字符串
+        	trim():去除两边空格
+        	int compareTo(String s):字典比较
+        	int compareToIgnoreCase(String s):忽略大小写比较
+4、编码表
+	编码表：由现实世界的字符和对应的数值组成的一张表
+	1）ASCII码：最高位是符号为，其他是数值位
+	2）ISO-8859-1:拉丁码表
+	3）GB2312:中文简体编码表
+	4）GBK：GB2312的升级版本，一个汉字对应两个字节
+	5）GB18030:GBK的升级版本
+	6）BIG-5:中文繁体编码表（俗称大5码）
+	7）Unicode：国际标注码。里面的所有文字都采用两个字节表示。Java默认采用该编码表
+		注意：Java在编译源码的时候，采用Unicode进行编译
+	8）UTF-8:俗称“万国码”，一个汉字对应三个字节
+	tips：
+		所有编码表都兼容ASCII码
+5、String中和编码表有关的方法
+	String(byte[] bys,String charset)
+		:通过指定的字符集，由指定的字符姐数组创建字符串对象（解码）
+	byte[] getBytes(String charset)
+		:通过指定的字符串，获取字符串的字节数组（编码）
