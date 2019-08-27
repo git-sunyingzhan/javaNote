@@ -1,0 +1,83 @@
+1、Calendar类
+	日历类，用于获取或者操作日历字段（年月日。。。）
+	该类为抽象类，不能实例化
+	成员方法
+		static Calendar getInstance():以默认的时区及语言创建日历对象
+		int get(int field):获取指定的日历字段
+		set(int field,int value):给指定的日历字段设置指定的值
+		Date getTime():获取当前日历的日期
+		setTime(Date d):给当前日历设置日期
+		add(int field,int amount):给指定的日历字段增加指定的值
+2、包装类
+	为了方便操作基本数据类型，提供了对应的包装类（面向对象的思想）
+	int-->Integer   char-->Character
+	byte-->Byte		short-->Short		long-->Long		float-->Float		double-->Double		boolean-->Boolean
+	除了Boolean之外，其他包装类都有字段：MAX_VALUE、MIN_VALUE
+	所有的包装类对象都可以通过其对应的基本数据类型创建
+3、Integer类
+	1）构造方法
+		Integer(int i)
+		Integer(String s)
+	2)成员方法
+		static Integer valueOf(int i):将int转成Integer
+		static Integer valueOf(String s):将string转成Integer
+		int intValue():将Integer转成int
+		int parseInt(String s):将字符串转成int
+4、自动装箱和自动拆箱
+	自动装箱：由基本数据类型转换成对应的包装类类型		Integer i = 10；
+	自动拆箱：有包装类类型装换成对应的基本数据类型		i + 20；
+5、Character类
+	1）构造
+		Character(char c)
+	2)方法
+		static boolean isUpperCase(char c):判断指定字符是否是大写字符
+		static boolean isLowerCase(char c):判断指定字符是否是小写字符
+		static boolean isDigit(char c):判断是否是数字字符
+		static Character toUpperCase(char c):转成大写字符
+		static Character toLowerCase(char c):转成小写字符
+6、Math类
+	成员方法（静态方法）
+		abs(int a):绝对值
+		ceil(double d):向上取整
+		floor(double d):向下取整
+		max(int a,int b):最大值
+		pow(double a,double b):a的b次幂
+		random():随机数，取值范围[0.0,1.0]
+		round(float f):四舍五入
+		sqrt(double d):算术平方根
+7、Random类
+	1）构造方法
+		Random():以当前时间毫秒值作为种子，创建Random对象
+		Random(long seed)：以指定毫秒值作为种子，创建Random对象
+	2）方法
+		nextInt():生成一个int类型范围内的随机数
+		nextInt(int n):生成一个[0,n-1]范围内的随机数
+8、System类
+	没有构造方法
+	1）成员方法（静态方法）
+		gc():运行垃圾回收处理机制,程序员不需要手动调用该方法。JVM会在不确定的时间调用该方法，清理垃圾对象。
+			执行gc之前，会先调用垃圾对象对应类的finalize方法。
+		exit(int status):退出JVM，非0的状态码表示异常终止
+		currentTimeMills():获取当前时间毫秒值
+		arraycopy(Object src,int srcPos,Object dest,int destPos,int length):数组复制
+9、BigInteger类
+	1）构造
+		BigInteger(String s)
+	2)方法
+		add(BigInteger bi)
+		subtract(BigInteger bi)
+		multiply(BigInteger bi)
+		divide(BigInteger bi)
+		BigInteger[] divideAndReainder(BigInteger val)
+			第一个元素this/val，第二个元素this%val
+10、BigDecaimal(解决浮点数精度问题)
+	1）构造
+		BigDecaimal(String s)
+	2)方法
+		add(BigDecaimal bd)
+		subtract(BigDecaimal bd)
+		multiply(BigDecaimal bd)
+		divide(BigDecaimal bd)
+		divide(BigDecaimal divisor,int scale,int roundingMode)
+		BigInteger[] divideAndReainder(BigInteger val)
+			第一个元素this/val，第二个元素this%val

@@ -30,7 +30,7 @@
 			{n,m}		表示n到m次
 2、String类中和正则表达式相关的方法
 	1）boolean matches(String regex)
-		字符串是否匹配指定的增则表达式
+		字符串是否匹配指定的正则表达式
 	2）String[]  split(String regex)
 		通过指定正则表达式将字符串分割为一个字符串数组
 	3）String replaceAll(String regex,String replaceMent)
