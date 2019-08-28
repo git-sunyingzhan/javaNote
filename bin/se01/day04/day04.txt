@@ -1,0 +1,109 @@
+1、集合
+	1）缘由：为了方便对对象进行操作
+	2）数组和集合的区别
+		都可以存储对象
+		数组的长度不可变，集合的长度不可变
+		数组还可以存储基本数据类型数据，集合不可以
+	3）特点：专门用来储存对象，长度可变，可以存放不同类型的对象
+2、Collection类
+	是集合的根接口，集合里面的元素可以是有序的，也可以是无序的；可以是重复的，也可以是唯一的
+	成员方法
+		1）添加	
+			add(Object obj):添加元素
+			addAll(Collection c):添加集合元素
+		2）删除
+			remove(Object obj):移除指定元素
+			removeAll(Object obj):删除集合元素
+			clear();清空
+		3)获取
+			size():集合大小
+			Iterator<E> iterator():获取集合的迭代器对象
+		4)判断
+			contains(Object obj):是否包含指定元素
+			containsAll(Collection c):是否包含指定的集合元素
+			isEmpty():集合是否为空
+		5)其他功能
+			Object[] toArray():集合转数组
+			boolean retainAll(Collection c):集合交集
+3、List接口
+	继承Collection接口，元素是有序可重复的
+	成员方法
+		add(int index,E e):在指定索引位置添加指定的元素
+		remove(int index,E e):删除指定索引处的元素
+		set(int index,E e):设置指定索引处的元素
+		get(int index):获取指定索引处的元素
+		ListIterator listIterator():获取列表迭代器
+4、LsitIterator
+	继承Iterator，允许正向或逆向遍历集合，且允许在迭代期间添加集合元素
+	成员方法
+		hasPrevious():是否有上一个元素
+		previous():获取上一个元素
+		add(E e):添加元素
+5、ArrayList类
+	底层是数组，查询快，增删慢
+	线程不安全，效率高
+6、Vector
+	底层是数组，查询快，增删慢
+	线程安全，效率低
+	成员方法：
+		addElement(E obj):添加元素
+		E elementAt(int index):获取指定索引位置的元素
+		Enumeration elements():获取当前集合所有元素组成的枚举对象
+	tips：
+		Enumeration是一个接口，
+		hasMoreElements():是否有更多元素
+		nextElement():获取下一个元素 
+7、常见的数据结构
+	数据结构：数据的存储方式
+	1）栈：先进后出
+	2）队列：先进先出
+	3）数组：查询快，增删慢
+	4）链表：查询慢，增删快
+	5）树：
+	6）哈希表：
+8、LinkedList(双向链表)
+	底层是链表，查询慢，增删快。
+	线程不同步，不安全，效率高。
+	成员方法：
+		addFirst(E e):在最前面添加元素
+		addLast(E e):在最后面添加元素
+		getFirst():获取第一个元素
+		getLast():获取最后一个元素
+		E removeFirst():移除第一个元素
+		E removeLast():移除最后一个元素
+9、泛型
+	1）概念：
+		是一种把类型明确的工作推迟到创建对象或调用方法的时候才去明确是特殊类型，是一种参数化的类型（将
+		类型当作参数一样进行传递）
+	2）格式：
+		<引用数据类型>
+	3)好处
+		1、将运行期间的问题提前到了编译期间
+		2、解决了黄色警告、优化程序设计
+		3、避免向下转型
+	4）泛型的设计
+		1、泛型类：
+			public class 类名<泛型类型1，...>{}
+		2、泛型接口
+			public interface 接口名<泛型类型，...>{}
+		3、泛型方法
+			public <泛型类型1，...> 返回值类型 方法名(){}
+	5)通配符
+		<?> : 通配任意类型
+		<? extends E> : 通配E以及E的子类
+		<? super E> : 通配E和E的父类
+
+作业（面试题）：
+	写一个MyLinked类，实现双向循环链表的操作
+	Node	head(链表的头)
+	size（元素的个数）
+	boolean add(E e)
+	boolean remove(E e)
+	boolean contains(E e)
+	int size()
+	String toString()
+	
+	Node(节点类，内部类)
+		element(元素)
+		next(下一个节点)
+		prev(上一个节点)
