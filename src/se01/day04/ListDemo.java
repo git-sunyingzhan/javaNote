@@ -1,6 +1,7 @@
 package se01.day04;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -56,5 +57,6 @@ public class ListDemo {
 			System.out.println(li.previous());
 		}
 	}
+
 
 }
