@@ -1,0 +1,40 @@
+1、Map接口
+	存储的是键值对（将键映射到值）。键不可以重复，值可以重复，每个键只能映射到一个值
+	成员方法：
+		V put(K,V):添加键值对或修改键对应到值
+		void clear():清空
+		V remove(K k):通过键删除元素
+		boolean containsKey(k):是否包含指定到值
+		boolean containsValue(v):是否包含指定到值
+		boolean isEmpty():是否为空
+		int size():获取集合大小
+		V get(k):通过键获取值
+		Set<K> keySet():获取所有键组成到集合
+		Collection<V> values():获取值组成到集合
+		Set<Entry<K,V>> entrySet():获取所有键值对组成的Set集合
+2、HashMap
+	实现了Map接口
+	
+HashMap和Hashtable的区别？
+	HashMap是线程不安全，不同步，效率高；允许出现null键和null值
+	Hashtable是线程安全，同步，效率低；不允许出现null键和null值
+	
+3、LinkedHashMap
+	继承HashMap，键值对有序
+
+4、TreeMap
+	元素可以根据键进行排序，元素具有唯一性
+	排序方式：
+		1）自然排序（元素具有比较性）
+			键对应的类实现Comparable接口，重写ComparTo()方法
+		2）比较器排序
+			构造方法接收一个比较器Comparator
+5、Collections
+	针对Collection集合进行操作的工具类
+	成员方法：
+		sort(List list):集合排序，默认自然排序
+		sort(List list,Comparator<T> c)：通过比较器进行排序
+		binarySearch(List<T> list):二分法查找
+		reverse(List<T> list):反转
+		max(Collection c):最大值
+		shuffle(List<T> list):随机置换
