@@ -61,6 +61,7 @@
 		currentTimeMills():获取当前时间毫秒值
 		arraycopy(Object src,int srcPos,Object dest,int destPos,int length):数组复制
 9、BigInteger类
+	继承Number类
 	1）构造
 		BigInteger(String s)
 	2)方法

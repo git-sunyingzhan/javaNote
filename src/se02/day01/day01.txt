@@ -1,0 +1,82 @@
+1、异常
+	Java在运行过程中出现的错误
+	异常的根类Throwable,其下有两个子类，分别为Error、Exception
+	Error：程序发生的严重问题
+		OutOfMemoryError:堆内存溢出错误----堆里面对象太多
+		StackOverflowError:栈内存溢出错误----栈里面方法太多
+	Exception：异常
+		RuntimeException：运行时异常，也称为UnCheckedException(非受检异常)
+			运行期间出现的异常
+		非RuntimeException：非运行时异常，也称为CheckedException(受检异常)
+			编译期间需要处理的异常
+
+2、异常的处理方案
+	1)try...catch
+		try{
+			可能会发生异常的代码；
+		}catch(异常名 变量){
+			针对异常进行处理的代码；
+		}finally{
+			释放资源代码；
+		}
+		注意：
+			1.finally里面的代码最终一定会执行(除了JVM退出)
+			2.try里面的代码越少越好
+			3.catch里面不能没有内容
+			4.如果程序中可能会发生多个异常，需要多个catch进行捕获。
+			5.异常之间如果是同级关系，catch谁先谁后无所谓；如果异常之间存在上下级关系，上级异常需要放在后面。
+	2）throws
+		格式：
+			修饰符 返回值类型 方法名(参数列表) throws 异常1，异常2，... {
+				可能会发生异常的方法体；
+			}
+		注意：
+			1.最好不要将异常抛给主方法
+			2.RuntimeException尽量不要throws
+			3.如非必要，任何异常都不要throws
+	总结：
+		能自己解决的异常，采用try...catch；不能自己解决的异常，采用throws
+		
+3、throw
+	抛出异常对象
+	
+4、自定义异常
+	1)只能继承Exception
+	2）建议使用RuntimeException（建议）
+
+5、File类
+	文件和目录路径名的抽象表现形式。
+	1）构造方法
+		File(String pathname):通过路径创建File对象
+		File(String parent,String child):通过父路径和子路径创建File对象
+		File(File parent,String child):通过父File和子路径创建File对象
+	2）成员方法
+		createNewFile():创建文件，如果存在就不创建。
+		mkdir():创建单级文件夹
+		mkdirs():创建多级文件夹
+		delete():删除当前File对象表示的文件或空文件夹
+		
+		isDirectory():是否是文件夹
+		isFile():是否是文件
+		exits():是否存在
+		canRead():是否可读
+		canWrite():是否可写
+		isHidden():是否隐藏
+		
+		getAbsoultPath():获取绝对路径
+		getPath():获取构造方法中传递的路径
+		getParent()获取父File对象
+		getName()：获取文件或目录名称
+		length()：获取文件的字节数
+		lastModified():获取最后一次修改时间的毫秒值
+		
+		String[] list():获取目录下的所有文件和文件夹名称
+		File[] listFiles():获取目录下的所有文件和文件夹的File对象
+		
+		String[] list(filenameFilter):
+		File[] listFiles(filenameFilter):
+		
+	tips：
+		路径的表示方式：
+			1）绝对路径:以盘符开始。比如D：\\demo\\new\1.txt
+			2）相对路径:相对于当前项目的路径。比如：io\2.png
