@@ -1,0 +1,95 @@
+1、IO流
+	1）概念：用来处理设备之间信息的传输
+	2）分类
+		1.按照数据类型：字节流和字符流
+		2.按数据流(按照数据流动的方向,以内存为基准)：输入流(InputStream)、输出流(OutPutStream)
+			即流向内存的是输入流，流出内存的是输出流。
+2、字节流
+	字节输入流InputStream（基类）
+	字节输出流OutputStream（基类）
+	
+3、FileOutputStream
+	文件字节输出流，继承OutPutStream
+	1）构造方法
+		FileOutPutStream(File file):
+		FileOutPutStream(File file,boolean append):追加写入
+		FileOutPutStream(String pathname):
+		FileOutPutStream(String pathname,boolean append):
+	2）成员方法
+		write(int by):写入一个字节
+		write(byte[] bys):写入一个字节数组
+		write(byte[] bys,int offset,int len):写入一个字节数组中的一部分
+		close():关闭流对象
+		注意：
+			在创建输出流对象的时候，如果文件不存在，会自动创建文件。如果文件所在的目录不存在，这时候会发生FileNotFoundException。
+4、FileInputStream
+	文件字节输入流，继承InputStream
+	1）构造方法
+		FileInputStream(File file)
+		FileInputStream(String pathname)
+	2)方法
+		int available():未读取的字节数
+		int read():读一个字节，返回字节数
+		int read(byte[] bys):读一个字节数组，返回读出字节数组的个数.读出的字节存放在bys数组中。
+		int read(byte[] bys,int off,int len)：读一个字节流数组中的一部分
+		close():关闭流对象
+5、字节缓冲流
+	主要为了提高字节流的读写速度
+	BufferedOutputStream缓冲字节输出流
+		BufferedOutputStream(OutputStream)
+	BufferedInputStream缓冲字节输入流
+		BufferedInputStream(InputStream is)
+6、字符流
+	Java使用字节流读中文不方便，提出了字符流。
+	字符流=字节流+编码表
+	Reader字符输入流（基类）
+	Writer字符输出流（基类）
+7、OutputStreamWriter
+	字符输出流，继承Writer
+	1）构造方法
+		OutputStreamWriter(OutputStream os):通过指定的字节输出流和默认字符集创建字符输出流对象
+		OutputStreamWriter(OutputStream os,String charsetName):通过指定的字节输出流和指定字符集名创建字符输出流对象
+	2）成员方法
+		write(int ch):写入一个字符
+		write(char[] chs):写入一个字符数组
+		write(char[] chs,int off,int len):写入指定数组中的一部分
+		write(String s):写入一个字符串
+		write(String s,int off,int len):写入指定字符串中的一部分
+		flush():清理缓冲区，将缓冲区数据写出
+		colse():关闭对象
+8、flush()和close()的区别
+	flush():清理缓冲区数据
+	close():关闭流对象，在执行操作之前会先执行flush()
+9、InputStreamReader
+	字符输入流，继承Reader
+	1）构造方法
+		InputStreamReader(InputStream is):通过指定的字节输出流和默认字符集创建字符输出流对象
+		InputStreamReader(InputStreamReader is,String charsetName):通过指定的字节输出流和指定字符集名创建字符输出流对象
+	2）成员方法
+		int read():读取一个字符，返回读到的字符，返回读出的字符个数。没有数据返回-1.
+		int read(char[] chs):读取一个字符数组，返回读出的字符个数。没有数据返回-1.
+		int read(char[] chs,int off,int len):读取数组中的一部分
+		close():关闭对象
+10、转换流（字符流的子类）
+	由于常见的操作都是按照本地默认编码进行操作，为了简化字符流的书写，Java提供了转换流的书写。
+	注意：转换流只能采用本地默认编码进行读写操作，不可以指定编码。
+	FileReader(文件字符输入流)
+	FileWriter(文件字符输出流)
+11、字符缓冲区
+	为了提高字符流的读写速度
+	BufferedReader:缓冲字符输入流
+		BufferedReader(Reader r)
+		String readLine():读取一整行数据。没有数据返回null。读取不到换行符。
+	BufferedWriter:缓冲字符输出流
+		BufferedWriter(Writer r)
+		newLine():写入一个换行符
+作业：
+	归档和解归档
+	归档：将多个文件合并成一个文件
+		规则：
+			1）先写入文件名长度4个字节
+			2）写入文件名
+			3）写入文件内容字节数的四个字节
+			4）写入文件内容
+			5）按照上面的4个步骤写入相应的步骤
+	解归档：将归档后的文件还原成多个文件
