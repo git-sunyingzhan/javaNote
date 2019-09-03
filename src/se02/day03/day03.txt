@@ -1,0 +1,73 @@
+1、序列化流
+	序列化流：ObjectOutputStream	对象转成字节
+		把对象按照流的方式写出，实现对对象的持久化存储
+		对象---》字节数据
+	反序列化流：ObjectInputStream  字节重构为对象
+		将文本文件中的字节数据或者网络中的字节数据还原成对象
+		字节数据---》对象
+	tips:JavaBean规范（实体类）
+		1）成员变量私有
+		2）提供标准格式的getter和setter
+		2）实现Serializable接口
+		4）需要提供无参的构造方法
+	注意：
+		1）需要序列化对象对应到类需要实现Serializable接口
+		2）该类到属性类型如果有类类型，那么对应到类也要实现Serializable接口
+		3）为了保证能够实现反序列化，对应类需要提供一个固定到UID
+		4）
+
+2、内存操作流
+	操作字节数组
+		ByteArrayInputStream
+		ByteArrayOutputStream
+	操作字符数组
+		CharArrayReader
+		CharArrayWriter
+		
+		
+3、ByteArrayOutputStream
+	向内存中写入数据。在内存中存在一个缓冲区（byte[]）,当所有数据写出到内存缓冲区后，可以一次性到获取所有数据。
+	byte[] toByteArray():获取缓冲区数据
+	String toString():使用默认字符集，将缓冲区内容转换成字符串。
+4、RandomAccessFile
+	随机访问流，该类不属于类，是Object子类。但是它融合了InputSream和OutputStream的功能。支持对文件对随机访问（读写操作）
+	1）构造方法
+		RandomAccessFile(String pathname,String mode):指定文件对路径以及访问模式创建对象
+		mode---rw(可读可写)
+	2）成员方法
+		writeInt(int v):写入一个int数据（写入四个字节）
+		readInt():读取一个int数据（读取四个字节）
+		writeUTF(String s):以UFT-8编码方式写入一个字节
+		seek(long pos):设置下一次读/写操作的位置
+5、标准输入输出流
+	System类里面有两个字段in,out;它们分别表示标准的输入和输出设备
+	System.in是InputStream，是标准输入流，默认读取键盘输入的数据
+	System.out是PrintStream，是标准输出流。默认向控制台写入数据。
+	
+	setInt(InputStream is):重新分配“标准“输入流
+	setOut(OutputStream os):重新分配“标准”输出流
+
+6、Properties（一般用于配置文件）    XML   HTML   注解
+	它表示一个持久化的属性集，Hashtable的子类
+	属性列表中的每一个键和每一个值只能字符串类型
+	1）方法
+		load(InputStream is):通过指定的字节流，将配置文件里面的数据，加载到集合中
+		store(OutputStream os):将集合里面数据写出到配置文件中。
+		setProperty(String key,String value)：添加属性以及属性值
+		String getProperty(String key):通过属性获取属性值
+		Set<String> stringPropertyNames():获取所有属性构成到集合。
+		
+7、多线程
+	1）进程：正在运行的程序，每个进程都有独立的储存空间
+	2）线程：应用程序到CPU到执行路径。线程是进程到执行单元，负责程序的执行。
+		在一个应用程序内部可以执行多个任务，每个任务可以看成是一个线程。
+	3）多线程
+		提高程序的使用率
+	4）并发和并行
+		并发：指某个时间段同时运行多个程序
+			并发的关键是你有处理多个任务的能力，不一定要同时执行。
+		并行：指某个时间点同时运行多个程序
+			并行的关键是你要有同时处理多个任务的能力
+8、多线程的实现方式
+	1）继承Thread
+	2）实现Runnable接口
