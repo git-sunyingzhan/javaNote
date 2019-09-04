@@ -1,0 +1,71 @@
+1、继承Thread好还是实现Runnable好？
+	实现Runnable比继承Thread更具有优势。
+	1）适合多个相同程序代码去共享同一个资源
+	2）避免Java中单继承的局限性
+	3）增强了程序的健壮性，实现了解藕操作。代码可以被多个线程共享，代码和线程独立。
+	4）线程池只能放入Runnable或Callable对象，不能放入Thread对象。
+2、Thread类
+	1）构造方法
+		Thread():创建一个线程对象
+		Thread(String name):创建指定线程名称的线程对象。
+		Thread(Runnable target):创建指定Runnable的线程对象
+		Thread(Runnable target,String name):创建指定Runnbale和线程名的线程对象
+		
+	2）成员方法
+		getName():获取线程名
+		setName(String name):设置线程名
+		Thread currentThread():获取当前的线程对象
+		getPriority():获取优先级，默认5，取值1～10
+		setPriority():设置优先级
+		tips:优先级高的线程不一定优先执行，只是有较高的概率优先执行。
+	
+	线程控制
+		static sleep(long time):线程休眠。
+			休眠时间到期，回到可运行状态，参与下一次CPU时间片的抢夺。如果抢到了CPU的执行权，会先执行上一次休眠未完成的操作。
+		Static yield():线程礼让。
+			暂停当前正在执行的线程，回到可运行状态，继续参与下一次CPU时间片的抢夺。
+			目的：使得线程之间能够和谐一点
+		void join():线程加入,等待该线程终止。
+		void join(long time):线程加入,执行指定时间。
+			如果指定时间内执行完毕，放开main线程。如果未执行完，放开main线程，进行下一次CPU执行权抢夺。
+			void join(0) === void join()；
+		void setDeamon(true):设置守护线程（后台线程）
+		tips：如果前台线程全部执行完毕，JVM退出。
+3、多线程的安全问题
+	1）出现条件：有多线程环境、有共享数据。
+	2）解决方案
+		1.同步代码快
+			synchronized(锁对象){
+				需要同步的代码；
+			}
+			说明：锁对象可以是任意锁对象；所有执行相同任务的线程共享统一把锁对象。
+		2.同步方法
+			在方法上面添加synchronized关键字
+			注意：同步方法的锁对象是this
+		3.jdk1.5提供的Lock
+			lock():获取锁
+			unlock():释放锁
+	tips:
+		同步代码块锁对象：任意锁对象
+		同步方法锁对象：this
+		静态方法锁对象：类的字节码文件
+4、线程通信
+	多个线程在处理同一个资源，但是处理的动作（线程的任务）不相同
+	资源类：数据类
+	生产者：设置数据的类
+	消费者：获取数据的类
+	
+5、等待唤醒机制
+	Object类里面定义了三个方法
+	1）wait():线程进入等待队列
+		wait(long time):如果在time时间内没有被唤醒。在time时间结束后自动唤醒
+	2）notify():唤醒等待队列中的单个线程
+	3）notifyAll():唤醒等待队列中的所有线程
+	注意：
+		1）wait、notify、notifyAll方法必须由同一个锁对象调用
+		2）锁对象可以是任意类型，所以这些方法是定义在Object类中，而不是Thread类中。
+6、死锁
+	两个或多个线程在争夺资源过程中发生的相互等待现象。
+	解决方案：
+		1）wait(time)
+		2)notifyAll()

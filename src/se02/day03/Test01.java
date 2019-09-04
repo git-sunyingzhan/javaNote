@@ -111,12 +111,10 @@ class Arichiveier{
 			int fnlen = toInt(lenBuf);
 			
 			//2)读文件名
-			
 			byte[] flenBuf = new byte[fnlen];
-			System.out.println(flenBuf.length);
-			fis.read(flenBuf);
 			
 			//获取文件名
+			fis.read(flenBuf);
 			String fileName = new String(flenBuf);
 			
 			//字节输出流
