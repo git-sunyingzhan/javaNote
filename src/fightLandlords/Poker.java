@@ -1,4 +1,5 @@
-package se02.day05.fightLandlords;
+package fightLandlords;
+
 
 //牌类
 public class Poker implements Comparable<Poker>{
